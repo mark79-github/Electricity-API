@@ -1,9 +1,9 @@
 package com.martinbg.electricityapi.controller;
 
 import com.martinbg.electricityapi.model.ElectricityModel;
+import com.martinbg.electricityapi.model.ElectricityPrice;
 import com.martinbg.electricityapi.model.HighVoltage;
 import com.martinbg.electricityapi.model.LowVoltage;
-import com.martinbg.electricityapi.model.ElectricityPrice;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/v2")
 public class ElectricityController {
 
     private final ElectricityModel electricityModel;
@@ -23,10 +23,15 @@ public class ElectricityController {
         this.electricityModel = new ElectricityModel(electricityPrice, lowVoltage, highVoltage);
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/data", produces = {"application/json"})
     public ResponseEntity<ElectricityModel> get() {
         return new ResponseEntity<>(
                 this.electricityModel,
                 HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/hello")
+    public String hello() {
+        return "Hello, world!";
     }
 }

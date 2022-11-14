@@ -1,1 +1,1 @@
-web: java -jar target/electricity.war
+web: java -jar target/electricity.war -Dserver.port=$PORT
