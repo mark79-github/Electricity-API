@@ -1,9 +1,9 @@
 package com.martinbg.electricityapi.model;
 
 public class ElectricityModel {
-    private ElectricityPrice electricityPrice;
-    private LowVoltage lowVoltage;
-    private HighVoltage highVoltage;
+    private final ElectricityPrice electricityPrice;
+    private final LowVoltage lowVoltage;
+    private final HighVoltage highVoltage;
 
     public ElectricityModel(ElectricityPrice electricityPrice, LowVoltage lowVoltage, HighVoltage highVoltage) {
         this.electricityPrice = electricityPrice;
@@ -15,11 +15,11 @@ public class ElectricityModel {
         return electricityPrice;
     }
 
-    public LowVoltage getHighVoltage() {
+    public LowVoltage getLowVoltage() {
         return lowVoltage;
     }
 
-    public HighVoltage getLowVoltage() {
+    public HighVoltage getHighVoltage() {
         return highVoltage;
     }
 }

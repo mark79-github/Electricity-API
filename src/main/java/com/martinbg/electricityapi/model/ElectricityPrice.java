@@ -1,20 +1,20 @@
 package com.martinbg.electricityapi.model;
 
 public class ElectricityPrice {
-    private double day;
+    private double daily;
     private double night;
 
-    public ElectricityPrice(double day, double night) {
-        this.day = day;
+    public ElectricityPrice(double daily, double night) {
+        this.daily = daily;
         this.night = night;
     }
 
-    public double getDay() {
-        return day;
+    public double getDaily() {
+        return daily;
     }
 
-    public void setDay(double day) {
-        this.day = day;
+    public void setDaily(double daily) {
+        this.daily = daily;
     }
 
     public double getNight() {

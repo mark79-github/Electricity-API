@@ -17,7 +17,7 @@ public class ElectricityController {
     private final ElectricityModel electricityModel;
 
     private ElectricityController() {
-        ElectricityPrice electricityPrice = new ElectricityPrice(0.02017, 0.11311);
+        ElectricityPrice electricityPrice = new ElectricityPrice(0.11311, 0.02017);
         LowVoltage lowVoltage = new LowVoltage(0.00885, 0.07073);
         HighVoltage highVoltage = new HighVoltage(0.02057);
         this.electricityModel = new ElectricityModel(electricityPrice, lowVoltage, highVoltage);
