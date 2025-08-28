@@ -1,6 +1,6 @@
 package com.martinbg.electricityapi.model;
 
-public abstract class BaseVoltage {
+abstract class BaseVoltage {
     private double access;
 
     protected BaseVoltage(double access) {
