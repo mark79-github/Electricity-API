@@ -1,1 +1,1 @@
-web: java -jar target/electricity.war -Dserver.port=$PORT
+web: java -Dserver.port=$PORT -jar build/libs/electricity-api-0.0.1-SNAPSHOT.jar
