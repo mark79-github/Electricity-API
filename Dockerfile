@@ -2,12 +2,14 @@ FROM eclipse-temurin:17-jdk-alpine
 
 WORKDIR /app
 
+RUN apk update && apk upgrade
+
 RUN addgroup -g 1001 -S appuser && \
     adduser -u 1001 -S appuser -G appuser
 
-COPY target/electricity.war electricity.war
+COPY build/libs/electricity-api-0.0.1-SNAPSHOT.jar app.jar
 
-RUN chown appuser:appuser electricity.war
+RUN chown appuser:appuser app.jar
 
 USER appuser
 
@@ -15,4 +17,4 @@ EXPOSE 8080
 
 ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
 
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar electricity.war"]
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
