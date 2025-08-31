@@ -13,6 +13,11 @@ target/
 .springBeans
 .sts4-cache
 
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
