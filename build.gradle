@@ -1,0 +1,75 @@
+plugins {
+    id 'war'
+    id 'org.springframework.boot' version '3.5.5'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'jacoco'
+    id 'org.sonarqube' version '6.2.0.5505'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework:spring-webmvc'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+group = 'com.martinbg'
+version = '0.0.1-SNAPSHOT'
+description = 'Electricity-API'
+java.sourceCompatibility = JavaVersion.VERSION_21
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+
+    jacoco {
+        excludes = ['**/ElectricityApiApplication.class']
+    }
+
+    testLogging {
+        events = ['passed', 'skipped', 'failed']
+        exceptionFormat = 'full'
+        showStandardStreams = false
+    }
+}
+
+jacocoTestReport {
+    dependsOn test
+
+    reports {
+        xml.required = true
+        csv.required = false
+        html.required = false
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.13"
+}
+
+sonar {
+    properties {
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.organization", "mark79-github"
+        property "sonar.projectKey", "mark79-github_Electricity-API"
+        property "sonar.projectName", "Electricity-API"
+        property "sonar.token", project.findProperty('sonar.token') ?: System.getenv('SONAR_TOKEN')
+        property "sonar.projectVersion", version
+        property "sonar.sources", "src/main/java"
+        property "sonar.tests", "src/test/java"
+        property "sonar.java.binaries", "build/classes/java/main"
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+    }
+}
+
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc).configureEach {
+    options.encoding = 'UTF-8'
+}
