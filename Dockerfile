@@ -7,9 +7,9 @@ RUN apk update && apk upgrade
 RUN addgroup -g 1001 -S appuser && \
     adduser -u 1001 -S appuser -G appuser
 
-COPY build/libs/electricity-api-0.0.1-SNAPSHOT.jar app.jar
+COPY build/libs/electricity-api-0.0.1-SNAPSHOT.war app.war
 
-RUN chown appuser:appuser app.jar
+RUN chown appuser:appuser app.war
 
 USER appuser
 
