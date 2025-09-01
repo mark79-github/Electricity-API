@@ -1,4 +1,4 @@
-package com.martinbg.electricityapi.configuration;
+package com.martinbg.electricityapi.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

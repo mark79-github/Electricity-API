@@ -1,6 +1,6 @@
 package com.martinbg.electricityapi.service;
 
-import com.martinbg.electricityapi.configuration.ElectricityConfig;
+import com.martinbg.electricityapi.config.ElectricityConfig;
 import com.martinbg.electricityapi.model.ElectricityModel;
 import com.martinbg.electricityapi.model.ElectricityPrice;
 import com.martinbg.electricityapi.model.HighVoltage;
