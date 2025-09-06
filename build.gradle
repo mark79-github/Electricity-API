@@ -14,6 +14,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework:spring-webmvc'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-inline:5.2.0'
 }
 
 group = 'com.martinbg'
@@ -24,10 +25,6 @@ java.sourceCompatibility = JavaVersion.VERSION_21
 test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
-
-    jacoco {
-        excludes = ['**/ElectricityApiApplication.class']
-    }
 
     testLogging {
         events = ['passed', 'skipped', 'failed']
