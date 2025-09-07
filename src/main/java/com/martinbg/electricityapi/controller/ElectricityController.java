@@ -26,9 +26,4 @@ public class ElectricityController {
         ElectricityModel electricityModel = electricityService.getElectricityData();
         return new ResponseEntity<>(electricityModel, HttpStatus.OK);
     }
-
-    @GetMapping(value = "/hello")
-    public String hello() {
-        return "Hello, world!";
-    }
 }
