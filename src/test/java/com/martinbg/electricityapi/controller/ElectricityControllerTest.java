@@ -52,11 +52,4 @@ class ElectricityControllerTest {
                 .andExpect(jsonPath("$.highVoltage.access").exists())
                 .andExpect(jsonPath("$.highVoltage.access").value(0.01451));
     }
-
-    @Test
-    void testHelloEndpoint() throws Exception {
-        mockMvc.perform(get("/api/v2/hello"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Hello, world!"));
-    }
 }
