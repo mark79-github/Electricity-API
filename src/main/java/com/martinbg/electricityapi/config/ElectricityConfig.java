@@ -6,19 +6,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class ElectricityConfig {
 
-    @Value("${ELECTRICITY_DAY_PRICE}")
+    @Value("${electricity_day_price}")
     private double dayPrice;
 
-    @Value("${ELECTRICITY_NIGHT_PRICE}")
+    @Value("${electricity_night_price}")
     private double nightPrice;
 
-    @Value("${ELECTRICITY_LOW_VOLTAGE_TRANSMISSION}")
+    @Value("${electricity_low_voltage_transmission}")
     private double lowVoltageTransmission;
 
-    @Value("${ELECTRICITY_LOW_VOLTAGE_ACCESS}")
+    @Value("${electricity_low_voltage_access}")
     private double lowVoltageAccess;
 
-    @Value("${ELECTRICITY_HIGH_VOLTAGE_ACCESS}")
+    @Value("${electricity_high_voltage_access}")
     private double highVoltageAccess;
 
     public double getDayPrice() {
