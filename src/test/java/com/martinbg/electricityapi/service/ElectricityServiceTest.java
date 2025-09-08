@@ -2,7 +2,7 @@ package com.martinbg.electricityapi.service;
 
 import com.martinbg.electricityapi.config.ElectricityConfig;
 import com.martinbg.electricityapi.model.ElectricityModel;
-import com.martinbg.electricityapi.util.ClientIpResolver;
+import com.martinbg.electricityapi.utils.ClientIpResolver;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

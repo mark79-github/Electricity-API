@@ -1,4 +1,4 @@
-package com.martinbg.electricityapi.util;
+package com.martinbg.electricityapi.utils;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.BeforeEach;

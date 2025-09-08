@@ -5,7 +5,7 @@ import com.martinbg.electricityapi.model.ElectricityModel;
 import com.martinbg.electricityapi.model.ElectricityPrice;
 import com.martinbg.electricityapi.model.HighVoltage;
 import com.martinbg.electricityapi.model.LowVoltage;
-import com.martinbg.electricityapi.util.ClientIpResolver;
+import com.martinbg.electricityapi.utils.ClientIpResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
