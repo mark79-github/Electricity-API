@@ -15,6 +15,9 @@ public class ElectricityConfig {
     @Value("${electricity_low_voltage_transmission}")
     private double lowVoltageTransmission;
 
+    @Value("${electricity_high_voltage_transmission}")
+    private double highVoltageTransmission;
+
     @Value("${electricity_low_voltage_access}")
     private double lowVoltageAccess;
 
@@ -33,6 +36,10 @@ public class ElectricityConfig {
         return lowVoltageTransmission;
     }
 
+    public double getHighVoltageTransmission() {
+        return highVoltageTransmission;
+    }
+
     public double getLowVoltageAccess() {
         return lowVoltageAccess;
     }
@@ -47,6 +54,7 @@ public class ElectricityConfig {
                 "dayPrice=" + dayPrice +
                 ", nightPrice=" + nightPrice +
                 ", lowVoltageTransmission=" + lowVoltageTransmission +
+                ", highVoltageTransmission=" + highVoltageTransmission +
                 ", lowVoltageAccess=" + lowVoltageAccess +
                 ", highVoltageAccess=" + highVoltageAccess +
                 '}';
