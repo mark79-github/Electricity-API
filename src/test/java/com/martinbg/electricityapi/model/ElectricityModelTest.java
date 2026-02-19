@@ -8,8 +8,8 @@ class ElectricityModelTest {
     @Test
     void testElectricityModelFields() {
         ElectricityPrice electricityPrice = new ElectricityPrice(0.20, 0.10);
-        LowVoltage lowVoltage = new LowVoltage(0.01, 0.05);
-        HighVoltage highVoltage = new HighVoltage(0.02);
+        ElectricityVoltage lowVoltage = new ElectricityVoltage(0.01, 0.05);
+        ElectricityVoltage highVoltage = new ElectricityVoltage(0.02, 0.10);
         ElectricityModel electricityModel = new ElectricityModel(electricityPrice, lowVoltage, highVoltage);
 
         assertEquals(0.20, electricityModel.price().getDaily());
@@ -17,5 +17,6 @@ class ElectricityModelTest {
         assertEquals(0.01, electricityModel.lowVoltage().getAccess());
         assertEquals(0.05, electricityModel.lowVoltage().getTransmission());
         assertEquals(0.02, electricityModel.highVoltage().getAccess());
+        assertEquals(0.10, electricityModel.highVoltage().getTransmission());
     }
 }
