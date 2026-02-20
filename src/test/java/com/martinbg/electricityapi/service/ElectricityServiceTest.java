@@ -35,6 +35,7 @@ class ElectricityServiceTest {
         when(electricityConfig.getLowVoltageAccess()).thenReturn(0.00977);
         when(electricityConfig.getLowVoltageTransmission()).thenReturn(0.04660);
         when(electricityConfig.getHighVoltageAccess()).thenReturn(0.01451);
+        when(electricityConfig.getHighVoltageTransmission()).thenReturn(0.06000);
 
         ElectricityModel result = electricityService.getElectricityData();
 
@@ -48,6 +49,7 @@ class ElectricityServiceTest {
         assertEquals(0.00977, result.lowVoltage().getAccess(), 0.00001);
         assertEquals(0.04660, result.lowVoltage().getTransmission(), 0.00001);
         assertEquals(0.01451, result.highVoltage().getAccess(), 0.00001);
+        assertEquals(0.06000, result.highVoltage().getTransmission(), 0.00001);
 
         verify(clientIpResolver).getClientIpAddress();
         verify(electricityConfig).getDayPrice();
@@ -55,5 +57,6 @@ class ElectricityServiceTest {
         verify(electricityConfig).getLowVoltageAccess();
         verify(electricityConfig).getLowVoltageTransmission();
         verify(electricityConfig).getHighVoltageAccess();
+        verify(electricityConfig).getHighVoltageTransmission();
     }
 }
