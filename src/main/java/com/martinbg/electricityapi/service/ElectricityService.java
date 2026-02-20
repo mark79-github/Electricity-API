@@ -3,8 +3,7 @@ package com.martinbg.electricityapi.service;
 import com.martinbg.electricityapi.config.ElectricityConfig;
 import com.martinbg.electricityapi.model.ElectricityModel;
 import com.martinbg.electricityapi.model.ElectricityPrice;
-import com.martinbg.electricityapi.model.HighVoltage;
-import com.martinbg.electricityapi.model.LowVoltage;
+import com.martinbg.electricityapi.model.ElectricityVoltage;
 import com.martinbg.electricityapi.utils.ClientIpResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,11 +29,10 @@ public class ElectricityService {
         String clientIp = clientIpResolver.getClientIpAddress();
         logger.debug("Retrieving electricity data for IP: {}", clientIp);
 
-        ElectricityModel model = new ElectricityModel(
-                new ElectricityPrice(config.getDayPrice(), config.getNightPrice()),
-                new LowVoltage(config.getLowVoltageAccess(), config.getLowVoltageTransmission()),
-                new HighVoltage(config.getHighVoltageAccess())
-        );
+        ElectricityPrice electricityPrice = new ElectricityPrice(config.getDayPrice(), config.getNightPrice());
+        ElectricityVoltage lowVoltage = new ElectricityVoltage(config.getLowVoltageAccess(), config.getLowVoltageTransmission());
+        ElectricityVoltage highVoltage = new ElectricityVoltage(config.getHighVoltageAccess(), config.getHighVoltageTransmission());
+        ElectricityModel model = new ElectricityModel(electricityPrice, lowVoltage, highVoltage);
 
         logger.info("Electricity data fetched from IP {}", clientIp);
         return model;

@@ -2,8 +2,7 @@ package com.martinbg.electricityapi.controller;
 
 import com.martinbg.electricityapi.model.ElectricityModel;
 import com.martinbg.electricityapi.model.ElectricityPrice;
-import com.martinbg.electricityapi.model.HighVoltage;
-import com.martinbg.electricityapi.model.LowVoltage;
+import com.martinbg.electricityapi.model.ElectricityVoltage;
 import com.martinbg.electricityapi.service.ElectricityService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +28,8 @@ class ElectricityControllerTest {
     @Test
     void testGetElectricityDataEndpoint() throws Exception {
         ElectricityPrice electricityPrice = new ElectricityPrice(0.17514, 0.07546);
-        LowVoltage lowVoltage = new LowVoltage(0.00977, 0.04660);
-        HighVoltage highVoltage = new HighVoltage(0.01451);
+        ElectricityVoltage lowVoltage = new ElectricityVoltage(0.00500, 0.02383);
+        ElectricityVoltage highVoltage = new ElectricityVoltage(0.00018, 0.00760);
         ElectricityModel mockModel = new ElectricityModel(electricityPrice, lowVoltage, highVoltage);
 
         when(electricityService.getElectricityData()).thenReturn(mockModel);
@@ -47,9 +46,11 @@ class ElectricityControllerTest {
                 .andExpect(jsonPath("$.price.night").value(0.07546))
                 .andExpect(jsonPath("$.lowVoltage.access").exists())
                 .andExpect(jsonPath("$.lowVoltage.transmission").exists())
-                .andExpect(jsonPath("$.lowVoltage.access").value(0.00977))
-                .andExpect(jsonPath("$.lowVoltage.transmission").value(0.04660))
+                .andExpect(jsonPath("$.lowVoltage.access").value(0.00500))
+                .andExpect(jsonPath("$.lowVoltage.transmission").value(0.02383))
                 .andExpect(jsonPath("$.highVoltage.access").exists())
-                .andExpect(jsonPath("$.highVoltage.access").value(0.01451));
+                .andExpect(jsonPath("$.highVoltage.access").value(0.00018))
+                .andExpect(jsonPath("$.highVoltage.transmission").exists())
+                .andExpect(jsonPath("$.highVoltage.transmission").value(0.00760));
     }
 }

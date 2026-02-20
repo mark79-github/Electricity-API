@@ -1,11 +1,20 @@
 package com.martinbg.electricityapi.model;
 
-public class LowVoltage extends BaseVoltage {
+public class ElectricityVoltage {
+    private double access;
     private double transmission;
 
-    public LowVoltage(double access, double transmission) {
-        super(access);
+    public ElectricityVoltage(double access, double transmission) {
+        this.access = access;
         this.transmission = transmission;
+    }
+
+    public double getAccess() {
+        return access;
+    }
+
+    public void setAccess(double access) {
+        this.access = access;
     }
 
     public double getTransmission() {

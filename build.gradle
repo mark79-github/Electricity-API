@@ -45,21 +45,21 @@ jacocoTestReport {
 }
 
 jacoco {
-    toolVersion = "0.8.13"
+    toolVersion = '0.8.13'
 }
 
 sonar {
     properties {
-        property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.organization", "mark79-github"
-        property "sonar.projectKey", "mark79-github_Electricity-API"
-        property "sonar.projectName", "Electricity-API"
-        property "sonar.token", System.getenv('SONAR_TOKEN')
-        property "sonar.projectVersion", version
-        property "sonar.sources", "src/main/java"
-        property "sonar.tests", "src/test/java"
-        property "sonar.java.binaries", "build/classes/java/main"
-        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+        property 'sonar.host.url', 'https://sonarcloud.io'
+        property 'sonar.organization', 'mark79-github'
+        property 'sonar.projectKey', 'mark79-github_Electricity-API'
+        property 'sonar.projectName', 'Electricity-API'
+        property 'sonar.token', System.getenv('SONAR_TOKEN')
+        property 'sonar.projectVersion', version
+        property 'sonar.sources', 'src/main/java'
+        property 'sonar.tests', 'src/test/java'
+        property 'sonar.java.binaries', 'build/classes/java/main'
+        property 'sonar.coverage.jacoco.xmlReportPaths', 'build/reports/jacoco/test/jacocoTestReport.xml'
     }
 }
 
