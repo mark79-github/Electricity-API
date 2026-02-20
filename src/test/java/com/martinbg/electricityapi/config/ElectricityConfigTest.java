@@ -41,4 +41,10 @@ class ElectricityConfigTest {
         assertEquals(0.01600, electricityConfig.getHighVoltageAccess(), 0.00001,
                 "The configured high voltage access should be 0.01600.");
     }
+
+    @Test
+    void testGetHighVoltageTransmissionShouldReturnConfiguredValue() {
+        assertEquals(0.06000, electricityConfig.getHighVoltageTransmission(), 0.00001,
+                "The configured high voltage access should be 0.01600.");
+    }
 }
