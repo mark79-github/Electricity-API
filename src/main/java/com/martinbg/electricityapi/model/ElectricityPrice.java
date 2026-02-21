@@ -1,27 +1,29 @@
 package com.martinbg.electricityapi.model;
 
-public class ElectricityPrice {
-    private double daily;
-    private double night;
+import java.math.BigDecimal;
 
-    public ElectricityPrice(double daily, double night) {
+public class ElectricityPrice {
+    private BigDecimal daily;
+    private BigDecimal night;
+
+    public ElectricityPrice(BigDecimal daily, BigDecimal night) {
         this.daily = daily;
         this.night = night;
     }
 
-    public double getDaily() {
+    public BigDecimal getDaily() {
         return daily;
     }
 
-    public void setDaily(double daily) {
+    public void setDaily(BigDecimal daily) {
         this.daily = daily;
     }
 
-    public double getNight() {
+    public BigDecimal getNight() {
         return night;
     }
 
-    public void setNight(double night) {
+    public void setNight(BigDecimal night) {
         this.night = night;
     }
 }
