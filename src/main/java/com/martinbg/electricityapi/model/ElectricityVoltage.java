@@ -1,27 +1,29 @@
 package com.martinbg.electricityapi.model;
 
-public class ElectricityVoltage {
-    private double access;
-    private double transmission;
+import java.math.BigDecimal;
 
-    public ElectricityVoltage(double access, double transmission) {
+public class ElectricityVoltage {
+    private BigDecimal access;
+    private BigDecimal transmission;
+
+    public ElectricityVoltage(BigDecimal access, BigDecimal transmission) {
         this.access = access;
         this.transmission = transmission;
     }
 
-    public double getAccess() {
+    public BigDecimal getAccess() {
         return access;
     }
 
-    public void setAccess(double access) {
+    public void setAccess(BigDecimal access) {
         this.access = access;
     }
 
-    public double getTransmission() {
+    public BigDecimal getTransmission() {
         return transmission;
     }
 
-    public void setTransmission(double transmission) {
+    public void setTransmission(BigDecimal transmission) {
         this.transmission = transmission;
     }
 }

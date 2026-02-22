@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
@@ -30,12 +32,12 @@ class ElectricityServiceTest {
     void testGetElectricityData_ShouldReturnCompleteModel() {
         String clientIp = "192.168.1.100";
         when(clientIpResolver.getClientIpAddress()).thenReturn(clientIp);
-        when(electricityConfig.getDayPrice()).thenReturn(0.17514);
-        when(electricityConfig.getNightPrice()).thenReturn(0.07546);
-        when(electricityConfig.getLowVoltageAccess()).thenReturn(0.00977);
-        when(electricityConfig.getLowVoltageTransmission()).thenReturn(0.04660);
-        when(electricityConfig.getHighVoltageAccess()).thenReturn(0.01451);
-        when(electricityConfig.getHighVoltageTransmission()).thenReturn(0.06000);
+        when(electricityConfig.getDayPrice()).thenReturn(BigDecimal.valueOf(0.17514));
+        when(electricityConfig.getNightPrice()).thenReturn(BigDecimal.valueOf(0.07546));
+        when(electricityConfig.getLowVoltageAccess()).thenReturn(BigDecimal.valueOf(0.00977));
+        when(electricityConfig.getLowVoltageTransmission()).thenReturn(BigDecimal.valueOf(0.04660));
+        when(electricityConfig.getHighVoltageAccess()).thenReturn(BigDecimal.valueOf(0.01451));
+        when(electricityConfig.getHighVoltageTransmission()).thenReturn(BigDecimal.valueOf(0.06000));
 
         ElectricityModel result = electricityService.getElectricityData();
 
@@ -44,12 +46,12 @@ class ElectricityServiceTest {
         assertNotNull(result.lowVoltage());
         assertNotNull(result.highVoltage());
 
-        assertEquals(0.17514, result.price().getDaily(), 0.00001);
-        assertEquals(0.07546, result.price().getNight(), 0.00001);
-        assertEquals(0.00977, result.lowVoltage().getAccess(), 0.00001);
-        assertEquals(0.04660, result.lowVoltage().getTransmission(), 0.00001);
-        assertEquals(0.01451, result.highVoltage().getAccess(), 0.00001);
-        assertEquals(0.06000, result.highVoltage().getTransmission(), 0.00001);
+        assertEquals(BigDecimal.valueOf(0.17514), result.price().getDaily());
+        assertEquals(BigDecimal.valueOf(0.07546), result.price().getNight());
+        assertEquals(BigDecimal.valueOf(0.00977), result.lowVoltage().getAccess());
+        assertEquals(BigDecimal.valueOf(0.04660), result.lowVoltage().getTransmission());
+        assertEquals(BigDecimal.valueOf(0.01451), result.highVoltage().getAccess());
+        assertEquals(BigDecimal.valueOf(0.06000), result.highVoltage().getTransmission());
 
         verify(clientIpResolver).getClientIpAddress();
         verify(electricityConfig).getDayPrice();

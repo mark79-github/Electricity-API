@@ -10,6 +10,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.math.BigDecimal;
+
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -27,9 +29,9 @@ class ElectricityControllerTest {
 
     @Test
     void testGetElectricityDataEndpoint() throws Exception {
-        ElectricityPrice electricityPrice = new ElectricityPrice(0.17514, 0.07546);
-        ElectricityVoltage lowVoltage = new ElectricityVoltage(0.00500, 0.02383);
-        ElectricityVoltage highVoltage = new ElectricityVoltage(0.00018, 0.00760);
+        ElectricityPrice electricityPrice = new ElectricityPrice(BigDecimal.valueOf(0.17514), BigDecimal.valueOf(0.07546));
+        ElectricityVoltage lowVoltage = new ElectricityVoltage(BigDecimal.valueOf(0.00500), BigDecimal.valueOf(0.02383));
+        ElectricityVoltage highVoltage = new ElectricityVoltage(BigDecimal.valueOf(0.00018), BigDecimal.valueOf(0.00760));
         ElectricityModel mockModel = new ElectricityModel(electricityPrice, lowVoltage, highVoltage);
 
         when(electricityService.getElectricityData()).thenReturn(mockModel);
