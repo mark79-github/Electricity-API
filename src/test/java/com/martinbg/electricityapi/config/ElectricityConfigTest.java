@@ -16,31 +16,35 @@ class ElectricityConfigTest {
 
     @Test
     void testGetDayPriceShouldReturnConfiguredValue() {
-        assertEquals(BigDecimal.valueOf(0.22), electricityConfig.getDayPrice());
+        assertBigDecimalSameValue(BigDecimal.valueOf(0.22), electricityConfig.getDayPrice());
     }
 
     @Test
     void testGetNightPriceShouldReturnConfiguredValue() {
-        assertEquals(BigDecimal.valueOf(0.08), electricityConfig.getNightPrice());
+        assertBigDecimalSameValue(BigDecimal.valueOf(0.08), electricityConfig.getNightPrice());
     }
 
     @Test
     void testGetLowVoltageTransmissionShouldReturnConfiguredValue() {
-        assertEquals(BigDecimal.valueOf(0.05), electricityConfig.getLowVoltageTransmission());
+        assertBigDecimalSameValue(BigDecimal.valueOf(0.05), electricityConfig.getLowVoltageTransmission());
     }
 
     @Test
     void testGetLowVoltageAccessShouldReturnConfiguredValue() {
-        assertEquals(BigDecimal.valueOf(0.01200), electricityConfig.getLowVoltageAccess());
+        assertBigDecimalSameValue(BigDecimal.valueOf(0.012), electricityConfig.getLowVoltageAccess());
     }
 
     @Test
     void testGetHighVoltageAccessShouldReturnConfiguredValue() {
-        assertEquals(BigDecimal.valueOf(0.016), electricityConfig.getHighVoltageAccess());
+        assertBigDecimalSameValue(BigDecimal.valueOf(0.016), electricityConfig.getHighVoltageAccess());
     }
 
     @Test
     void testGetHighVoltageTransmissionShouldReturnConfiguredValue() {
-        assertEquals(BigDecimal.valueOf(0.06), electricityConfig.getHighVoltageTransmission());
+        assertBigDecimalSameValue(BigDecimal.valueOf(0.06), electricityConfig.getHighVoltageTransmission());
+    }
+
+    private void assertBigDecimalSameValue(BigDecimal expected, BigDecimal actual) {
+        assertEquals(0, expected.compareTo(actual));
     }
 }
