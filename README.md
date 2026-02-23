@@ -7,13 +7,13 @@ A straightforward REST API built with Spring Boot that returns electricity prici
 
 ### Core Technologies
 ![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.5-brightgreen?style=flat-square&logo=springboot&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.3-brightgreen?style=flat-square&logo=springboot&logoColor=white)
 ![Spring MVC](https://img.shields.io/badge/Spring%20MVC-Framework-brightgreen?style=flat-square&logo=spring&logoColor=white)
 
 ### Build & Testing
 ![Gradle](https://img.shields.io/badge/Gradle-Build%20Tool-02303A?style=flat-square&logo=gradle&logoColor=white)
 ![JUnit](https://img.shields.io/badge/JUnit-Testing-25A162?style=flat-square&logo=junit5&logoColor=white)
-![Mockito](https://img.shields.io/badge/Mockito-5.2.0-yellow?style=flat-square&logo=mockito&logoColor=white)
+![Mockito](https://img.shields.io/badge/Mockito-5.21.0-yellow?style=flat-square&logo=mockito&logoColor=white)
 
 ### Quality & Deployment
 ![JaCoCo](https://img.shields.io/badge/JaCoCo-Coverage-red?style=flat-square&logo=java&logoColor=white)
