@@ -1,12 +1,11 @@
 package com.martinbg.electricityapi.model;
 
+import com.martinbg.electricityapi.BigDecimalAssertion;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-class ElectricityVoltageTest {
+class ElectricityVoltageTest implements BigDecimalAssertion {
 
     @Test
     void testLowVoltageConstructor() {
@@ -15,8 +14,8 @@ class ElectricityVoltageTest {
 
         ElectricityVoltage voltage = new ElectricityVoltage(access, transmission);
 
-        assertEquals(access, voltage.getAccess());
-        assertEquals(transmission, voltage.getTransmission());
+        assertBigDecimalEquals(transmission, voltage.getTransmission());
+        assertBigDecimalEquals(access, voltage.getAccess());
     }
 
     @Test
@@ -28,7 +27,7 @@ class ElectricityVoltageTest {
         voltage.setAccess(newAccess);
         voltage.setTransmission(newTransmission);
 
-        assertEquals(newAccess, voltage.getAccess());
-        assertEquals(newTransmission, voltage.getTransmission());
+        assertBigDecimalEquals(newAccess, voltage.getAccess());
+        assertBigDecimalEquals(newTransmission, voltage.getTransmission());
     }
 }
