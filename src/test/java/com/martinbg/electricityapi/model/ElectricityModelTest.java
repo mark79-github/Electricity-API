@@ -1,12 +1,11 @@
 package com.martinbg.electricityapi.model;
 
+import com.martinbg.electricityapi.BigDecimalAssertion;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-class ElectricityModelTest {
+class ElectricityModelTest implements BigDecimalAssertion {
 
     @Test
     void testElectricityModelFields() {
@@ -15,11 +14,11 @@ class ElectricityModelTest {
         ElectricityVoltage highVoltage = new ElectricityVoltage(BigDecimal.valueOf(0.02), BigDecimal.valueOf(0.1));
         ElectricityModel electricityModel = new ElectricityModel(electricityPrice, lowVoltage, highVoltage);
 
-        assertEquals(BigDecimal.valueOf(0.20), electricityModel.price().getDaily());
-        assertEquals(BigDecimal.valueOf(0.10), electricityModel.price().getNight());
-        assertEquals(BigDecimal.valueOf(0.01), electricityModel.lowVoltage().getAccess());
-        assertEquals(BigDecimal.valueOf(0.05), electricityModel.lowVoltage().getTransmission());
-        assertEquals(BigDecimal.valueOf(0.02), electricityModel.highVoltage().getAccess());
-        assertEquals(BigDecimal.valueOf(0.10), electricityModel.highVoltage().getTransmission());
+        assertBigDecimalEquals(BigDecimal.valueOf(0.20), electricityModel.price().getDaily());
+        assertBigDecimalEquals(BigDecimal.valueOf(0.10), electricityModel.price().getNight());
+        assertBigDecimalEquals(BigDecimal.valueOf(0.01), electricityModel.lowVoltage().getAccess());
+        assertBigDecimalEquals(BigDecimal.valueOf(0.05), electricityModel.lowVoltage().getTransmission());
+        assertBigDecimalEquals(BigDecimal.valueOf(0.02), electricityModel.highVoltage().getAccess());
+        assertBigDecimalEquals(BigDecimal.valueOf(0.10), electricityModel.highVoltage().getTransmission());
     }
 }
