@@ -1,6 +1,6 @@
 plugins {
     id 'war'
-    id 'org.springframework.boot' version '4.0.3'
+    id 'org.springframework.boot' version '4.0.6'
     id 'jacoco'
     id 'org.sonarqube' version '7.2.2.6593'
 }
@@ -10,8 +10,8 @@ repositories {
 }
 
 ext {
-    springBootVersion = '4.0.3'
-    mockitoCoreVersion = '5.21.0'
+    springBootVersion = '4.0.6'
+    mockitoCoreVersion = '5.23.0'
 }
 
 dependencies {
@@ -74,4 +74,8 @@ tasks.withType(JavaCompile).configureEach {
 
 tasks.withType(Javadoc).configureEach {
     options.encoding = 'UTF-8'
+}
+
+tasks.withType(JavaExec).configureEach {
+    jvmArgs += ["-Xshare:off"]
 }
