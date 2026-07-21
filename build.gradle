@@ -1,26 +1,23 @@
 plugins {
     id 'war'
-    id 'org.springframework.boot' version '4.0.6'
+    id 'org.springframework.boot' version '4.1.0'
     id 'jacoco'
     id 'org.sonarqube' version '7.2.2.6593'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
 repositories {
     mavenCentral()
 }
 
-ext {
-    springBootVersion = '4.0.6'
-    mockitoCoreVersion = '5.23.0'
-}
-
 dependencies {
-    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
-    implementation "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
-    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
-    testImplementation "org.springframework.boot:spring-boot-starter-webmvc-test:${springBootVersion}"
-    testImplementation "org.springframework.boot:spring-boot-starter-restclient-test:${springBootVersion}"
-    testImplementation "org.mockito:mockito-core:${mockitoCoreVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "org.springframework.boot:spring-boot-starter-webmvc-test"
+    testImplementation "org.springframework.boot:spring-boot-starter-restclient-test"
+    testImplementation "org.mockito:mockito-core"
 }
 
 group = 'com.martinbg'
@@ -50,7 +47,7 @@ jacocoTestReport {
 }
 
 jacoco {
-    toolVersion = '0.8.14'
+    toolVersion = '0.8.15'
 }
 
 sonar {
