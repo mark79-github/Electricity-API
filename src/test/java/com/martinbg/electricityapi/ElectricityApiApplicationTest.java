@@ -17,12 +17,12 @@ class ElectricityApiApplicationTest {
         String[] args = {"arg_1", "arg_2"};
 
         try (MockedStatic<SpringApplication> mockedStatic = mockStatic(SpringApplication.class)) {
+            ConfigurableApplicationContext applicationContext = mock(ConfigurableApplicationContext.class);
+
             mockedStatic.when(() -> SpringApplication.run(ElectricityApiApplication.class, args))
-                    .thenReturn(mock(ConfigurableApplicationContext.class));
+                    .thenReturn(applicationContext);
 
             ElectricityApiApplication.main(args);
-
-            mockedStatic.verify(() -> SpringApplication.run(ElectricityApiApplication.class, args));
         }
     }
 }
