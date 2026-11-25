@@ -1,0 +1,34 @@
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.martinbg.UpgradeBuildDependencies
+displayName: Upgrade Gradle build dependencies
+description: Upgrade selected Gradle plugins and third-party dependencies.
+
+recipeList:
+
+  # Update SpringBoot Gradle plugin (patch releases)
+  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
+      pluginIdPattern: org.springframework.boot
+      newVersion: latest.release
+
+  # Update SonarQube Gradle plugin (patch releases)
+  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
+      pluginIdPattern: org.sonarqube
+      newVersion: latest.patch
+
+  # Update Spring dependency management plugin (patch releases)
+  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
+      pluginIdPattern: io.spring.dependency-management
+      newVersion: latest.patch
+
+  # Update OpenRewrite Gradle plugin (patch releases)
+  - org.openrewrite.gradle.plugins.UpgradePluginVersion:
+      pluginIdPattern: org.openrewrite.rewrite
+      newVersion: latest.patch
+
+  # Update example-library dependency (patch releases)
+#  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
+#      groupId: com.example
+#      artifactId: example-library
+#      newVersion: latest.release

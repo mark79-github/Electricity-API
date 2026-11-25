@@ -3,7 +3,6 @@ package com.martinbg.electricityapi.controller;
 
 import com.martinbg.electricityapi.model.ElectricityModel;
 import com.martinbg.electricityapi.service.ElectricityService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +15,6 @@ public class ElectricityController {
 
     private final ElectricityService electricityService;
 
-    @Autowired
     public ElectricityController(ElectricityService electricityService) {
         this.electricityService = electricityService;
     }
