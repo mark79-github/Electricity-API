@@ -6,8 +6,8 @@ A straightforward REST API built with Spring Boot that returns electricity prici
 ## 🛠️ Tech Stack
 
 ### Core Technologies
-![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.0-brightgreen?style=flat-square&logo=springboot&logoColor=white)
+![Java](https://img.shields.io/badge/Java-25-orange?style=flat-square&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.2.0-brightgreen?style=flat-square&logo=springboot&logoColor=white)
 ![Spring MVC](https://img.shields.io/badge/Spring%20MVC-Framework-brightgreen?style=flat-square&logo=spring&logoColor=white)
 
 ### Build & Testing
