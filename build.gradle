@@ -18,10 +18,9 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-test"
     testImplementation "org.springframework.boot:spring-boot-starter-webmvc-test"
     testImplementation "org.springframework.boot:spring-boot-starter-restclient-test"
-    testImplementation "org.mockito:mockito-core"
 
-//    rewrite 'org.openrewrite.recipe:rewrite-migrate-java:latest.release'
-//    rewrite 'org.openrewrite.recipe:rewrite-spring:latest.release'
+    rewrite 'org.openrewrite.recipe:rewrite-migrate-java:latest.release'
+    rewrite 'org.openrewrite.recipe:rewrite-spring:latest.release'
     rewrite 'org.openrewrite.recipe:rewrite-java-dependencies:latest.release'
 }
 
@@ -52,14 +51,14 @@ jacocoTestReport {
 }
 
 jacoco {
-    toolVersion = '0.8.15'
+    toolVersion = '0.8.16'
 }
 
 sonar {
     properties {
         property 'sonar.host.url', 'https://sonarcloud.io'
         property 'sonar.organization', 'mark79-github'
-        property 'sonar.projectKey', 'mark79-github_Electricity-API'
+        property 'sonar.projectKey', 'Electricity-API'
         property 'sonar.projectName', 'Electricity-API'
         property 'sonar.token', System.getenv('SONAR_TOKEN')
         property 'sonar.projectVersion', version
@@ -83,8 +82,9 @@ tasks.withType(JavaExec).configureEach {
 }
 
 rewrite {
-//    activeRecipe 'org.openrewrite.java.migrate.UpgradeToJava25'
-//    activeRecipe 'org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0'
+    activeRecipe 'org.openrewrite.java.migrate.UpgradeToJava25'
+    activeRecipe 'org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0'
+    activeRecipe 'org.openrewrite.gradle.UpdateGradleWrapper'
     activeRecipe 'com.martinbg.UpgradeBuildDependencies'
     exportDatatables = true
 }
