@@ -67,6 +67,7 @@ sonar {
         property 'sonar.projectName', 'Electricity-API'
         property 'sonar.token', System.getenv('SONAR_TOKEN')
         property 'sonar.projectVersion', version
+        property 'sonar.verbose', 'true'
         property 'sonar.sources', 'src/main/java'
         property 'sonar.tests', 'src/test/java'
         property 'sonar.java.binaries', 'build/classes/java/main'
