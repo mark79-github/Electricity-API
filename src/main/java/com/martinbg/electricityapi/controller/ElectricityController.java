@@ -1,4 +1,3 @@
-
 package com.martinbg.electricityapi.controller;
 
 import com.martinbg.electricityapi.model.ElectricityModel;
