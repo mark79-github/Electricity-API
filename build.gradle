@@ -29,7 +29,7 @@ dependencies {
 }
 
 group = 'com.martinbg'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2'
 description = 'Electricity-API'
 java.sourceCompatibility = JavaVersion.VERSION_25
 java.targetCompatibility = JavaVersion.VERSION_25
@@ -86,12 +86,16 @@ tasks.withType(JavaExec).configureEach {
     jvmArgs += ["-Xshare:off"]
 }
 
+tasks.named('war') {
+    archiveFileName = 'electricity-api.war'
+}
+
 rewrite {
     activeRecipe 'org.openrewrite.java.migrate.UpgradeToJava25'
     activeRecipe 'org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0'
     activeRecipe 'org.openrewrite.gradle.UpdateGradleWrapper'
-    activeRecipe 'org.openrewrite.staticanalysis.CommonStaticAnalysis'
-    activeRecipe 'org.openrewrite.java.format.AutoFormat'
     activeRecipe 'com.martinbg.UpgradeBuildDependencies'
+    activeRecipe 'com.martinbg.ProjectCleanup'
+    activeStyle 'com.martinbg.ExplicitImportStyle'
     exportDatatables = true
 }

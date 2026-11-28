@@ -2,31 +2,56 @@ type: specs.openrewrite.org/v1beta/recipe
 name: com.martinbg.UpgradeBuildDependencies
 displayName: Upgrade Gradle build dependencies
 description: Upgrade selected Gradle plugins and third-party dependencies.
-
 recipeList:
-
   # Update SpringBoot Gradle plugin (patch releases)
   - org.openrewrite.gradle.plugins.UpgradePluginVersion:
       pluginIdPattern: org.springframework.boot
       newVersion: latest.release
-
   # Update SonarQube Gradle plugin (patch releases)
   - org.openrewrite.gradle.plugins.UpgradePluginVersion:
       pluginIdPattern: org.sonarqube
-      newVersion: latest.patch
-
+      newVersion: latest.release
   # Update Spring dependency management plugin (patch releases)
   - org.openrewrite.gradle.plugins.UpgradePluginVersion:
       pluginIdPattern: io.spring.dependency-management
-      newVersion: latest.patch
-
+      newVersion: latest.release
   # Update OpenRewrite Gradle plugin (patch releases)
   - org.openrewrite.gradle.plugins.UpgradePluginVersion:
       pluginIdPattern: org.openrewrite.rewrite
-      newVersion: latest.patch
+      newVersion: latest.release
+  # Update OpenRewrite recipe BOM
+  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
+      groupId: org.openrewrite.recipe
+      artifactId: rewrite-recipe-bom
+      newVersion: latest.release
+  # Remove JAXB-API dependency
+  - org.openrewrite.java.dependencies.RemoveDependency:
+      groupId: javax.xml.bind
+      artifactId: jaxb-api
 
-  # Update example-library dependency (patch releases)
-#  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-#      groupId: com.example
-#      artifactId: example-library
-#      newVersion: latest.release
+---
+type: specs.openrewrite.org/v1beta/style
+name: com.martinbg.ExplicitImportStyle
+displayName: Explicit import style
+description: Prevents OpenRewrite from using wildcard imports.
+styleConfigs:
+  - org.openrewrite.java.style.ImportLayoutStyle:
+      classCountToUseStarImport: 999
+      nameCountToUseStarImport: 999
+      layout:
+        - import java.*
+        - import javax.*
+        - import jakarta.*
+        - <blank line>
+        - import all other imports
+        - <blank line>
+        - import static all other imports
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.martinbg.ProjectCleanup
+displayName: Project cleanup
+description: Formatting and static analysis without broad Java migration changes.
+recipeList:
+  - org.openrewrite.java.format.AutoFormat
+  - org.openrewrite.staticanalysis.CommonStaticAnalysis

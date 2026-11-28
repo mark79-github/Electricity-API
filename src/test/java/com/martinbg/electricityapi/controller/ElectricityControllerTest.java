@@ -1,5 +1,7 @@
 package com.martinbg.electricityapi.controller;
 
+import java.math.BigDecimal;
+
 import com.martinbg.electricityapi.model.ElectricityModel;
 import com.martinbg.electricityapi.model.ElectricityPrice;
 import com.martinbg.electricityapi.model.ElectricityVoltage;
@@ -10,8 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.math.BigDecimal;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
