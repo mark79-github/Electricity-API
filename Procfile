@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar build/libs/electricity-api-0.0.1-SNAPSHOT.war
+web: java -Dserver.port=$PORT -jar build/libs/electricity-api.war
