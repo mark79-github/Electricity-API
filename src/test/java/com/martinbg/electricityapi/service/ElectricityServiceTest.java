@@ -1,5 +1,7 @@
 package com.martinbg.electricityapi.service;
 
+import java.math.BigDecimal;
+
 import com.martinbg.electricityapi.BigDecimalAssertion;
 import com.martinbg.electricityapi.config.ElectricityConfig;
 import com.martinbg.electricityapi.model.ElectricityModel;
@@ -9,8 +11,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
